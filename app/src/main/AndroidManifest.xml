@@ -12,19 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CITOR"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-<!--&lt;!&ndash;            <meta-data&ndash;&gt;-->
-<!--&lt;!&ndash;                android:name="android.app.lib_name"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:value="" />&ndash;&gt;-->
-<!--        </activity>-->
+<!--            <meta-data-->
+<!--                android:name="android.app.lib_name"-->
+<!--                android:value="" />-->
+        </activity>
 
         <meta-data
             android:name="xposedmodule"
@@ -39,8 +39,5 @@
             android:value="53"
             />
     </application>
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>

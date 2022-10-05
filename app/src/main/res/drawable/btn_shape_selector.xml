@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--注意后面这个xmlns-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item app:state_on="false" android:drawable="@drawable/btn_shape" />
+    <item app:state_on="true" android:drawable="@drawable/btn_shape_enabled" />
+
+</selector>
