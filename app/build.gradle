@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'cn.letswap.citor'
-    compileSdk 33
-
+    compileSdk 31
+//  修改了compileSdk 和 targetSdk 可以创建文件了？
     defaultConfig {
         applicationId "cn.letswap.citor"
-        minSdk 26
-        targetSdk 33
+        minSdk 21
+        targetSdk 26
         versionCode 1
         versionName "1.0"
 

@@ -44,25 +44,19 @@ public class Interceptor implements IXposedHookLoadPackage {
 
 //    Camera 2
     public static CameraDevice.StateCallback stateCallback = null;
-
-    public static int n = 0;
-
-    private static WeakReference<XSharedPreferences> weakModulePreferences = new WeakReference<>(null);
-    private static WeakReference<Resources> weakModuleResources = new WeakReference<>(null);
-
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
-        if (n > 0) {
-            return;
-        }
-        Log.e("lets start",lpparam.packageName);
+//        Settings.reload();
+        // 好像真读不到这个文件 只能判断是否存在
+//        Log.e("lets start", Settings.exists()+"" +Settings.isAppOn());
+//        if (Settings.exists() && Settings.isAppOn()) {
+//            Log.e("lets start",lpparam.packageName);
+//        } else  {
+//            Log.e("lets start",lpparam.packageName + " skipped");
+//            return;
+//        }
 
-        XSharedPreferences xsp = new XSharedPreferences(BuildConfig.APPLICATION_ID);
-        Log.e("lets start", xsp.getFile().getPath());
-
-        File f = new File("/data/data/cn.letswap.citor/shared_prefs/cn.letswap.citor_preferences.xml");
-        f.canRead();
-        Log.e("lets start", f.exists()+"--"+f.canRead());
+        Log.e("lets start", lpparam.packageName);
 
         /*
         * Camera 1 Live TikTok

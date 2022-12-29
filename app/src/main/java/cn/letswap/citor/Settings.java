@@ -15,14 +15,16 @@ import java.nio.charset.StandardCharsets;
 
 public class Settings {
 
-    private static final String settingsFilePath = "/data/data/cn.letswap.citor/settings/settings.json";
+    private static final String settingsFilePath = "/storage/emulated/0/citor/settings/";
+//    private static final String settingsFilePath = "/data/data/cn.letswap.citor/settings/";
+    private static final String settingsFileName = "settings.json";
     private static final Data initSettings = new Data();
 
     private static File settingsFile = null;
 
     private static File getSettingsFile() {
         if (settingsFile == null) {
-            settingsFile = new File(settingsFilePath);
+            settingsFile = new File(settingsFilePath + settingsFileName);
         }
         return settingsFile;
     }
@@ -31,7 +33,17 @@ public class Settings {
         return getSettingsFile().exists();
     }
 
+    public static void reload() {
+        settingsFile = new File(settingsFilePath + settingsFileName);
+    }
+
     public static void init() throws IOException {
+        File settingFilePath = new File(settingsFilePath);
+        if (!settingFilePath.exists()) {
+            if (!settingFilePath.mkdirs()) {
+                Log.e("lets start", "create file path failed");
+            }
+        }
         if (!getSettingsFile().exists()) {
             boolean created = getSettingsFile().createNewFile();
             if (!created) {
@@ -46,7 +58,6 @@ public class Settings {
 
     public static boolean isAppOn() throws IOException {
         FileInputStream fis = new FileInputStream(getSettingsFile());
-        IOUtils.toString(fis,StandardCharsets.UTF_8);
         Gson g = new Gson();
         Data d = g.fromJson(IOUtils.toString(fis,StandardCharsets.UTF_8),Data.class);
         fis.close();
